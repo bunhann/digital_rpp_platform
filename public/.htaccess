@@ -1,0 +1,11 @@
+<IfModule mod_mime.c>
+    AddType application/javascript .js
+    AddType text/css .css
+    AddType application/json .json
+    AddType image/png .png
+    AddType image/svg+xml .svg
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header set Cache-Control "public, max-age=31536000" "expr=%{REQUEST_URI} =~ m#\.(js|css|png|jpg|jpeg|gif|svg|woff|woff2)$#"
+</IfModule>
